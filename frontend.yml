@@ -7,7 +7,7 @@
         name: nginx
         status: installed
 
-    - name: Copy file with owner and permissions
+    - name: service file
       ansible.builtin.copy:
         src: nginx-roboshop.conf
         dest: /etc/nginx/default.d/roboshop.conf
