@@ -5,7 +5,7 @@
     - name: Install Nginx
       ansible.builtin.yum:
         name: nginx
-        status: installed
+        state: installed
 
     - name: Copy roboshop configuration
       ansible.builtin.copy:
