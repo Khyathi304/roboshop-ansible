@@ -1,10 +1,9 @@
-- name: shipping setup
+- name: catalogue setup
   hosts: all
   become: true
   vars:
-    component: shipping
+    component: catalogue
     schema: true
   tasks:
-    - name: Java Setup
-      ansible.builtin.import_tasks: java.yml
-
+    - name: NodeJs Setup
+      ansible.builtin.import_tasks: nodejs.yml
