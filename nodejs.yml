@@ -21,7 +21,7 @@
 
 - name: schema-setup
   ansible.builtin.import_tasks: mongo-schema.yml
-  when: schema is true
+  when: { { schema } } is true
 
 - name: systemd setup
   ansible.builtin.import_tasks: systemd.yml
