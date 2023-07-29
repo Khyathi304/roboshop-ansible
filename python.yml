@@ -1,0 +1,31 @@
+- name: Install python
+  ansible.builtin.yum:
+    name:
+      - python36
+      - gcc
+      - python3-devel
+    state: installed
+
+- name: App-Prereq
+  ansible.builtin.import_tasks: apppre-req.yml
+
+- name: Download pyhton Dependencies
+  ansible.builtin.shell: pip3.6 install -r requirements.txt
+  args:
+    chdir: /app
+
+- name: systemd setup
+  ansible.builtin.import_tasks: systemd.yml
+
+
+
+
+
+#
+#sed -i "s/rabbitmq_app_password/${rabbitmq_app_password}/" /etc/systemd/system/${component}.service
+#
+#echo -e "\e[36m>>>>>>>>> Build ${component} service  <<<<<<<<<<\e[0m"
+#pip3.6 install -r requirements.txt &>>${log}
+#func_exit-status
+#
+#func_systemd
